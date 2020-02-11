@@ -1,4 +1,4 @@
-# terraform-aws-presto
+# terraform-aws-presto ![GitHub tag (latest by date)](https://img.shields.io/github/v/tag/Lewuathe/terraform-aws-presto) ![GitHub](https://img.shields.io/github/license/Lewuathe/terraform-aws-presto)
 Terraform module to create [Presto cluster](https://prestosql.io/). The cluster runs on top of AWS Fargate using docker image published by [Lewuathe](https://github.com/Lewuathe/docker-presto-cluster/)
 
 # Usage
