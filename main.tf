@@ -328,7 +328,7 @@ data "template_file" "worker_container" {
 
   vars = {
     presto_version = var.presto_version
-    discovery_uri = aws_lb.presto_alb.dns_name
+    discovery_uri  = aws_lb.presto_alb.dns_name
   }
 }
 
@@ -367,11 +367,11 @@ resource "aws_ecs_service" "presto_coordinator" {
 }
 
 resource "aws_ecs_service" "presto_worker" {
-  name                              = "presto-worker"
-  cluster                           = aws_ecs_cluster.presto.arn
-  task_definition                   = aws_ecs_task_definition.presto_worker.arn
-  desired_count                     = var.cluster_capacity
-  launch_type                       = "FARGATE"
+  name            = "presto-worker"
+  cluster         = aws_ecs_cluster.presto.arn
+  task_definition = aws_ecs_task_definition.presto_worker.arn
+  desired_count   = var.cluster_capacity
+  launch_type     = "FARGATE"
 
   network_configuration {
     assign_public_ip = false
