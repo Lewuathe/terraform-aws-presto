@@ -306,19 +306,28 @@ resource "aws_ecs_cluster" "presto" {
   name = "presto"
 }
 
+data "template_file" "coordinator_container" {
+  template = file("${path.module}/coordinator-container.json.template")
+
+  vars = {
+    presto_version = var.presto_version
+  }
+}
+
 resource "aws_ecs_task_definition" "presto_coordinator" {
   family                   = "presto-coordinator"
   cpu                      = "2048"
   memory                   = "4096"
   network_mode             = "awsvpc"
   requires_compatibilities = ["FARGATE"]
-  container_definitions    = file("${path.module}/coordinator-container.json")
+  container_definitions    = data.template_file.coordinator_container.rendered
 }
 
 data "template_file" "worker_container" {
   template = file("${path.module}/worker-container.json.template")
 
   vars = {
+    presto_version = var.presto_version
     discovery_uri = aws_lb.presto_alb.dns_name
   }
 }

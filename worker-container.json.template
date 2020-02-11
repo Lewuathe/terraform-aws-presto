@@ -1,0 +1,17 @@
+[
+  {
+    "name": "presto-worker",
+    "image": "lewuathe/presto-worker:${presto_version}",
+    "essential": true,
+    "cpu": 2048,
+    "portMappings": [
+      {
+        "protocol": "tcp",
+        "containerPort": 8081
+      }
+    ],
+   "command": [
+      "http://${discovery_uri}"
+    ]
+  }
+]

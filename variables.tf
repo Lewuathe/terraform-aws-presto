@@ -33,3 +33,9 @@ variable "cluster_capacity" {
   type = number
   default = 2
 }
+
+variable "presto_version" {
+  type = string
+  default = "330-SNAPSHOT"
+  description = "The tag of the docker image used in the cluster. See https://hub.docker.com/repository/docker/lewuathe/presto-base/tags for available tags."
+}

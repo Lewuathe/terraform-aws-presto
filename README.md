@@ -1,5 +1,5 @@
 # terraform-aws-presto
-Terraform module to create Presto cluster
+Terraform module to create Presto cluster. It makes use of AWS Fargate to launch Presto cluster.
 
 # Usage
 
@@ -27,11 +27,12 @@ $ ./presto-cli --server http://presto-XXXX.us-east-1.elb.amazonaws.com --catalog
 # Variables
 
 - `region`: AWS Region
-- `vpc_cidr_block`: CIDR Block of the VPC where Presto cluster is running
+- `vpc_cidr_block`: CIDR Block of the VPC where Presto cluster is running. There are two availability zones in the public/private subnets respectively. You can specify the CIDR block of these subnets by the following variables.
   - `public_0_cidr_block`
   - `public_1_cidr_block`
   - `private_0_cidr_block`
   - `private_1_cidr_block`
+- `presto_version`: The tag of the docker image used in the cluster. See [Docker Hub](https://hub.docker.com/repository/docker/lewuathe/presto-base/tags) for available tags.
 - `cluster_capacity`: The number of tasks for worker process
 
 # Outputs

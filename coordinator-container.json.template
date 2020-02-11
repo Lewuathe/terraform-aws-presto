@@ -1,0 +1,17 @@
+[
+  {
+    "name": "presto-coordinator",
+    "image": "lewuathe/presto-coordinator:${presto_version}",
+    "essential": true,
+    "cpu": 2048,
+    "portMappings": [
+      {
+        "protocol": "tcp",
+        "containerPort": 8080
+      }
+    ],
+    "command": [
+      "http://localhost:8080", "coordinator"
+    ]
+  }
+]
