@@ -22,7 +22,7 @@ $ ./presto-cli --server http://presto-XXXX.us-east-1.elb.amazonaws.com --catalog
 
 # Overview
 
-![Overview](overview.png)
+![Overview](https://github.com/Lewuathe/terraform-aws-presto/blob/master/overview.png?raw=true)
 
 # Variables
 
