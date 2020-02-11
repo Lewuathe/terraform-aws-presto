@@ -1,5 +1,5 @@
 # terraform-aws-presto
-Terraform module to create Presto cluster. It makes use of AWS Fargate to launch Presto cluster.
+Terraform module to create [Presto cluster](https://prestosql.io/). The cluster runs on top of AWS Fargate using docker image published by [Lewuathe](https://github.com/Lewuathe/docker-presto-cluster/)
 
 # Usage
 
